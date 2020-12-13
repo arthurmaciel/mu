@@ -3,7 +3,7 @@ An extended Scheme `lambda` with optional and named (destructured) parameters.
 
 It is a proof-of-concept of how Scheme implementations could extend the `lambda` form to parse/destructure its arguments in alternative ways, and allow faster prototyping. 
 
-It is highly inspired on the ideas discussed with Lassi Kortela and Marc Nieper-Wißkirchen on [this issue](https://github.com/justinethier/cyclone/issues/387) and the beautiful idea of extending Scheme core syntax, maybe targeting R8RS ([SRFI-201](https://srfi.schemers.org/srfi-201/srfi-201.html) is highly inspiring in this sense too, although not closed related to this implementation).
+It is highly inspired on the ideas discussed with Lassi Kortela and Marc Nieper-Wißkirchen on [this issue](https://github.com/justinethier/cyclone/issues/387) and the beautiful idea of extending Scheme core syntax, maybe targeting R8RS ([SRFI-201](https://srfi.schemers.org/srfi-201/srfi-201.html) is highly inspiring in this sense too, although not related to this implementation).
 
 These high-level abstractions implemented in Scheme are very inneficient (almost 20x slower than actual `lambda` in the worst case - tested in [Cyclone Scheme](http://justinethier.github.io/cyclone/)). Maybe if implemented in the compiler it could run much faster.
 
