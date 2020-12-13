@@ -182,3 +182,5 @@ We could see other applications for arguments destructuring with alists if we im
 - Instead of/in addition to named parameters through an alist, `mu` could allow a property list of [SRFI-88](https://srfi.schemers.org/srfi-88/srfi-88.html) keywords, like proposed in [SRFI-89](https://srfi.schemers.org/srfi-89/srfi-89.html). 
 Eg.  `(keyword1: value1 keyword2: value 2 ...)`. Maybe this would make the code cleaner and avoid the extra step when passing a keyword.
 
+- Maybe use a special keyword or reader syntax to point to the named and optionals parameters like [Chicken's](http://wiki.call-cc.org/man/5/Extensions%20to%20the%20standard#bang) `#!key` and `#!optional`? Maybe wrap the named values in `{ }`? This way we could just lift positional-only `mu` procedures directly into a lambda one, i.e. overhead only if parameter destructring is used.
+
