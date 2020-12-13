@@ -173,7 +173,7 @@ We see how we could just write procedures for parameter destructuring:
 10
 ```
 
-We could see other applications for arguments destructuring if we imagine use cases for `hash-table->alist` or `STRUCTNAME->alist` (in a more useful record type like [Chicken's one](http://wiki.call-cc.org/eggref/5/defstruct)).
+We could see other applications for arguments destructuring with alists if we imagine use cases for `hash-table->alist` or `STRUCTNAME->alist` (in a more useful record type like [Chicken's one](http://wiki.call-cc.org/eggref/5/defstruct)).
 
 ## Ideas (suggestions are very welcomed!)
 
