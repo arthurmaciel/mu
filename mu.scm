@@ -1,16 +1,7 @@
 (import (scheme base)
         (scheme write)
         (scheme cyclone util)
-        ;; (cyclone match)
-        )
-
-;; (define-syntax def
-;;   (er-macro-transformer
-;;    (lambda (expr rename compare)
-;;      (let ((name (first expr))
-;;            (content (rest expr)))
-;;        `(,(rename 'define) ,name ,@content)))))
-
+        (cyclone match))
 
 (define (get-value item lst)
   (let ((result (assoc item lst)))
@@ -21,7 +12,7 @@
         #f)))
 
 ;; Handle improper alists, e.g. '((a 1) (b 2)),
-;; and proper alista, e.g. '((a . 1) (b . 2))
+;; and also proper alists, e.g. '((a . 1) (b . 2))
 (define (alist? alist)
   (if (list? alist)
       (cond ((null? alist) #f)
@@ -31,7 +22,6 @@
                                (= 2 (length kv)))))
                     alist)))
       #f))
-
 
 (define-syntax mu
   (er-macro-transformer
@@ -129,14 +119,15 @@
                                                     (error "Parameter not defined" ',pos))))
                                        positional)
                                   (if rest
-                                      `((,rest (or (get-value ',rest (car called-args)) '())))
+                                      `((,rest (list (or (get-value ',rest (car called-args)) '()))))
                                       '()))
-                         ;; (,%apply (,%lambda ,rest ,@body) '())
                          ,@body))
 
                        ;; (mu (a) body) or (mu (a . rest) body)
                        ((,%= ,optional-len 0)
-                        (,%apply (,%lambda (,@positional . ,(or rest '())) ,@body) called-args))
+                        (,%apply (,%lambda (,@positional . ,(or rest '()))
+                                           ,@body)
+                                 called-args))
 
                        ;; From now on we assume THERE ARE optionals params:
                        ;; Eg. (mu (a (b 2)) body), (mu (a (b 2) . rest) body),
