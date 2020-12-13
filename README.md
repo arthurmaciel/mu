@@ -173,6 +173,8 @@ We see how we could just write procedures for parameter destructuring:
 10
 ```
 
+We could see other applications for arguments destructuring if we imagine use cases for `hash-table->alist` or `STRUCTNAME->alist` (in a more useful record type like [Chicken's one](http://wiki.call-cc.org/eggref/5/defstruct)).
+
 ## Ideas (suggestions are very welcomed!)
 
 - Instead of/in addition to named parameters through an alist, `mu` could provide pattern matching as in  [SRFI-201](https://srfi.schemers.org/srfi-201/srfi-201.html) (defined in section *The pattern matching (destructuring) lambda form*).
