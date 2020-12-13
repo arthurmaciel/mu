@@ -1,7 +1,6 @@
 (import (scheme base)
         (scheme write)
-        (scheme cyclone util)
-        (cyclone match))
+        (scheme cyclone util))
 
 (define (get-value item lst)
   (let ((result (assoc item lst)))
